@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.restfulapisample.dao.ApiPerfDao">
+    <!--  ApiPerfDetail 映射关系  -->
+    <resultMap id="resultMap" type="com.demo.restfulapisample.entities.ApiPerfDetails">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="client_id" jdbcType="INTEGER" property="clientId" />
+        <result column="business_id" jdbcType="INTEGER" property="businessId" />
+        <result column="domain_name" jdbcType="VARCHAR" property="domain" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
+        <result column="router_path" jdbcType="VARCHAR" property="router" />
+        <result column="page_name" jdbcType="VARCHAR" property="page" />
+        <result column="api_duration" jdbcType="DOUBLE" property="apiDuration" />
+        <result column="tcp_duration" jdbcType="DOUBLE" property="tcpDuration" />
+        <result column="ttfb_duration" jdbcType="DOUBLE" property="ttfbDuration" />
+        <result column="dns_duration" jdbcType="DOUBLE" property="dnsDuration" />
+        <result column="created_at" jdbcType="DATE" property="createdAt" />
+    </resultMap>
+    <!--  ApiPerfDetails 数据库字段列表  -->
+    <sql id="ApiPerfDetails_Column_List">
+        `id`, `client_id`, `business_id`, `domain_name`, `url`, `router_path`, `page_name`, `api_duration`, `tcp_duration`, `ttfb_duration`, `dns_duration`, `created_at`
+    </sql>
+    <!--  SQL操作  -->
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.demo.restfulapisample.entities.ApiPerfDetails" useGeneratedKeys="true">
+        INSERT INTO `t_api_perf_detail` (
+            <include refid="ApiPerfDetails_Column_List"/>
+        ) VALUES (
+            #{id}, #{clientId}, #{businessId}, #{domainName}, #{url}, #{routerPath}, #{pageName}, #{apiDuration}, #{tcpDuration}, #{ttfbDuration}, #{dnsDuration}, #{createdAt}
+        )
+    </insert>
+</mapper>

@@ -18,12 +18,6 @@ public class ApiPerfDetails implements Serializable {
     /** 业务线Id */
     private int businessId;
 
-    /** 导航类型Id */
-    private int navigationId;
-
-    /** 重定向次数 */
-    private int redirectCount;
-
     /** 域名 */
     private String domainName;
 
@@ -51,7 +45,7 @@ public class ApiPerfDetails implements Serializable {
     /** DNS耗时 */
     private double dnsDuration;
 
-    /** 创建时间戳 */
+    /** 创建性能数据的时间戳 */
     private Date createdAt;
 
     public int getId() {
@@ -76,22 +70,6 @@ public class ApiPerfDetails implements Serializable {
 
     public void setBusinessId(int businessId) {
         this.businessId = businessId;
-    }
-
-    public int getNavigationId() {
-        return navigationId;
-    }
-
-    public void setNavigationId(int navigationId) {
-        this.navigationId = navigationId;
-    }
-
-    public int getRedirectCount() {
-        return redirectCount;
-    }
-
-    public void setRedirectCount(int redirectCount) {
-        this.redirectCount = redirectCount;
     }
 
     public String getDomainName() {
