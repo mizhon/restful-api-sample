@@ -23,7 +23,7 @@
     </sql>
     <!--  SQL操作  -->
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.demo.restfulapisample.entities.ApiPerfDetails" useGeneratedKeys="true">
-        INSERT INTO `t_api_perf_detail` (
+        INSERT INTO `t_api_perf_details` (
             <include refid="ApiPerfDetails_Column_List"/>
         ) VALUES (
             #{id}, #{clientId}, #{businessId}, #{domainName}, #{url}, #{routerPath}, #{pageName}, #{apiDuration}, #{tcpDuration}, #{ttfbDuration}, #{dnsDuration}, #{createdAt}
