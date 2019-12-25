@@ -22,16 +22,16 @@ CREATE TABLE IF NOT EXISTS `t_business_lines` (
     PRIMARY KEY (`id`)
 )ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '业务线表';
 
-CREATE TABLE IF NOT EXISTS `t_navigation_types` (
-    `id` INT UNSIGNED AUTO_INCREMENT COMMENT '来源主键ID',
-    `navigation_type` VARCHAR(20) NOT NULL COMMENT '网页类型名称：0 - TYPE_NAVIGATENEXT、1 - TYPE_RELOAD、2 - TYPE_BACK_FORWARD、255 - TYPE_UNDEFINED',
-    `navigation_desc` VARCHAR(40) DEFAULT NULL COMMENT '来源描述',
-    PRIMARY KEY (`id`)
-)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '网页加载来源mapping表';
-
 CREATE TABLE IF NOT EXISTS `t_web_clients` (
     `id` INT UNSIGNED AUTO_INCREMENT COMMENT '客户端主键ID',
     `client_name` VARCHAR(10) NOT NULL COMMENT 'client名称:PC、H5、WeChat(微信)、Weex、Android、iOS、Flutter等',
     `client_desc` VARCHAR(40) DEFAULT NULL COMMENT 'client端描述',
     PRIMARY KEY (`id`)
 )ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '对应client端mapping表';
+
+--CREATE TABLE IF NOT EXISTS `t_navigation_types` (
+--    `id` INT UNSIGNED AUTO_INCREMENT COMMENT '来源主键ID',
+--    `navigation_type` VARCHAR(20) NOT NULL COMMENT '网页类型名称：0 - TYPE_NAVIGATENEXT、1 - TYPE_RELOAD、2 - TYPE_BACK_FORWARD、255 - TYPE_UNDEFINED',
+--    `navigation_desc` VARCHAR(40) DEFAULT NULL COMMENT '来源描述',
+--    PRIMARY KEY (`id`)
+--)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '网页加载来源mapping表';
