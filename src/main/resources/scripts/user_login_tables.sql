@@ -20,17 +20,20 @@ CREATE TABLE IF NOT EXISTS `t_user_local_auth`(
     `password` VARCHAR(100) NOT NULL COMMENT '登录密码'
 )ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '用户口令Authentication表';
 
--- 第三方微博用户登录Authentication表
+-- 第三方用户登录Authentication表
 CREATE TABLE IF NOT EXISTS `t_oauth_third_party_info`(
     `id` INT AUTO_INCREMENT COMMENT '表id',
     `uid` INT NOT NULL COMMENT '客户id',
-    `oauth_id` VARCHAR(50) NOT NULL COMMENT '用户对应的auth id',
-    `oauth_name` VARCHAR(50) NOT NULL COMMENT '用户对应的auth name',
+    `oauth_id` VARCHAR(50) NOT NULL COMMENT '对应的auth id',
     `oauth_access_token` VARCHAR(100) NOT NULL COMMENT '对应的微博token',
     `oauth_expires` TIMESTAMP NOT NULL COMMENT '对应的微博token过期时间'
 )ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '第三方用户登录Authentication表';
 
 -- 第三方用户登录对应mapping表
-CREATE TABLE IF NOT EXISTS `t_oauth_mapping`(
-
-)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '第三方用户登录对应mapping表';
+CREATE TABLE IF NOT EXISTS `t_oauth_client_mapping`(
+    `id` INT AUTO_INCREMENT COMMENT '表id',
+    `oauth_id` VARCHAR(10) NOT NULL COMMENT 'client对应的auth id',
+    `client_name` VARCHAR(10) NOT NULL COMMENT '第三方名称',
+    `client_type` CHAR(10) NOT NULL COMMENT '第三方应用的类型',
+    `client_desc` VARCHAR(50) COMMENT '第三方应用的描述信息'
+)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '用户采用第三方登录对应的mapping表';
