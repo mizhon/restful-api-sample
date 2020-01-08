@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS `t_oauth_third_party_info`(
 -- 第三方用户登录对应mapping表
 CREATE TABLE IF NOT EXISTS `t_oauth_client_mapping`(
     `id` INT AUTO_INCREMENT COMMENT '表id',
-    `oauth_id` VARCHAR(10) NOT NULL COMMENT 'client对应的auth id',
-    `client_name` VARCHAR(10) NOT NULL COMMENT '第三方名称',
+    `oauth_id` VARCHAR(10) NOT NULL COMMENT '对应的auth id',
+    `oauth_name` VARCHAR(10) NOT NULL COMMENT '第三方名称',
     `client_type` CHAR(10) NOT NULL COMMENT '第三方应用的类型',
     `client_desc` VARCHAR(50) COMMENT '第三方应用的描述信息'
 )ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '用户采用第三方登录对应的mapping表';
