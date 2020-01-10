@@ -1,6 +1,10 @@
--- api性能详情表
+CREATE DATABASE `api_perf_tracker`;
+
 CREATE TABLE IF NOT EXISTS `t_api_perf_details` (
-    `id` INT AUTO_INCREMENT COMMENT '性能表主键ID',
+    `id` INT UNSIGNED AUTO_INCREMENT COMMENT '性能表主键id',
+    `uid` INT NOT NULL COMMENT '用户对应uid',
+    `device_id` VARCHAR(50) COMMENT '客户端设备号',
+    `network_type` VARCHAR(10) COMMENT '网络类型：wifi, 4g, other等',
     `client_id` INT UNSIGNED NOT NULL COMMENT '客户端ID',
   	`business_id` INT UNSIGNED NOT NULL COMMENT '业务线ID',
     `domain_name` VARCHAR(50) NOT NULL COMMENT '域名',
@@ -16,9 +20,8 @@ CREATE TABLE IF NOT EXISTS `t_api_perf_details` (
     `error_info` VARCHAR(255) NULL COMMENT '包含的错误信息',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '性能数据创建时间',
     PRIMARY KEY (`id`)
-)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '接口性能详情表';
+)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '接口性能详情表';
 
--- 业务线信息表
 CREATE TABLE IF NOT EXISTS `t_business_lines` (
     `id` INT UNSIGNED AUTO_INCREMENT COMMENT '业务线主键ID',
     `business_code` VARCHAR(20) NOT NULL COMMENT '业务线代号',
@@ -28,9 +31,8 @@ CREATE TABLE IF NOT EXISTS `t_business_lines` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '业务线数据创建时间',
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '业务线数据修改时间',
     PRIMARY KEY (`id`)
-)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '业务线表';
+)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '业务线表';
 
--- 客户端信息表
 CREATE TABLE IF NOT EXISTS `t_web_clients` (
     `id` INT UNSIGNED AUTO_INCREMENT COMMENT '客户端主键ID',
     `client_name` VARCHAR(10) NOT NULL COMMENT 'client名称:PC、H5、WeChat、Weex、Android、iOS、Flutter等',
@@ -39,4 +41,4 @@ CREATE TABLE IF NOT EXISTS `t_web_clients` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '客户端信息创建时间',
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '客户端信息修改时间',
     PRIMARY KEY (`id`)
-)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '对应client端mapping表';
+)ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT '对应client端mapping表';

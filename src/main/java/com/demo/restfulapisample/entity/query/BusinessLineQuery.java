@@ -1,30 +1,25 @@
-package com.demo.restfulapisample.entities;
-
-import java.io.Serializable;
+package com.demo.restfulapisample.entity.query;
 
 /**
  * @author ming
  */
-public class BusinessClients implements Serializable {
-    private static final long serialVersionUID = 2L;
+public class BusinessLineQuery {
 
-    /** 业务线记录的Id */
-    private int id;
+    private Integer id;
 
-    /** 业务线记录对应code码，例如：tech、hr等 */
     private String businessCode;
 
-    /** 业务线记录名称，例如：技术部、人力资源部、产品部 */
     private String businessName;
 
-    /** 业务线描述、介绍 */
     private String businessDesc;
 
-    public int getId() {
+    private Boolean active;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -50,5 +45,13 @@ public class BusinessClients implements Serializable {
 
     public void setBusinessDesc(String businessDesc) {
         this.businessDesc = businessDesc;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

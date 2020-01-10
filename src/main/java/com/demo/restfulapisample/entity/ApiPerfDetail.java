@@ -1,59 +1,134 @@
-package com.demo.restfulapisample.entities;
+package com.demo.restfulapisample.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author ming
  */
-public class ApiPerfDetails implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class ApiPerfDetail implements Serializable {
+    /**
+     * 记录的Id
+     */
+    private Long id;
 
-    /** 记录的Id */
-    private int id;
+    /**
+     * 用户对应的uid信息
+     */
+    private Long uid;
 
-    /** 客户端分类Id */
+    /**
+     * 客户端的DeviceId
+     */
+    private String deviceId;
+
+    /**
+     * 网络类型（Wifi | 4G | Other)
+     */
+    private String networkType;
+
+    /**
+     * 客户端分类Id
+     */
     private int clientId;
 
-    /** 业务线Id */
+    /**
+     * 业务线Id
+     */
     private int businessId;
 
-    /** 域名 */
+    /**
+     * 域名
+     */
     private String domainName;
 
-    /** URL地址 */
+    /**
+     * URL地址
+     */
     private String url;
 
-    /** 页面对应的路由信息 */
+    /**
+     * 页面对应的路由信息
+     */
     private String routerPath;
 
-    /** 发起请求的页面信息 */
+    /**
+     * 发起请求的页面信息
+     */
     private String pageName;
 
-    /** 页面加载耗时 */
+    /**
+     * 页面加载耗时
+     */
     private double pageLoadTime;
 
-    /** API请求所需时间 */
+    /**
+     * API请求所需时间
+     */
     private double apiDuration;
 
-    /** TCP耗时 */
+    /**
+     * tcp耗时
+     */
     private double tcpDuration;
 
-    /** TTFB耗时 */
+    /**
+     * TTFB耗时
+     */
     private double ttfbDuration;
 
-    /** DNS耗时 */
+    /**
+     * DNS耗时
+     */
     private double dnsDuration;
 
-    /** 创建性能数据的时间戳 */
+    /**
+     * 接口是否包含错误
+     */
+    private boolean hasError;
+
+    /**
+     * 包含的错误信息
+     */
+    private String errorInfo;
+
+    /**
+     * 创建时间戳
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getNetworkType() {
+        return networkType;
+    }
+
+    public void setNetworkType(String networkType) {
+        this.networkType = networkType;
     }
 
     public int getClientId() {
@@ -144,6 +219,22 @@ public class ApiPerfDetails implements Serializable {
         this.dnsDuration = dnsDuration;
     }
 
+    public boolean isHasError() {
+        return hasError;
+    }
+
+    public void setHasError(boolean hasError) {
+        this.hasError = hasError;
+    }
+
+    public String getErrorInfo() {
+        return errorInfo;
+    }
+
+    public void setErrorInfo(String errorInfo) {
+        this.errorInfo = errorInfo;
+    }
+
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -152,3 +243,4 @@ public class ApiPerfDetails implements Serializable {
         this.createdAt = createdAt;
     }
 }
+

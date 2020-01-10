@@ -1,4 +1,4 @@
-package com.demo.restfulapisample.conf;
+package com.demo.restfulapisample.config;
 
 import org.springframework.context.annotation.Configuration;
 
