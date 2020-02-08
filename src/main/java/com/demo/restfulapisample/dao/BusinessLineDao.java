@@ -1,5 +1,6 @@
 package com.demo.restfulapisample.dao;
 
+import com.demo.restfulapisample.entity.BusinessLine;
 import com.demo.restfulapisample.entity.query.BusinessLineQuery;
 
 import java.util.List;
@@ -12,13 +13,13 @@ public interface BusinessLineDao {
      * Dao层，插入业务线数据
      * @param businessLine 业务线实例信息
      */
-    Integer insertBusinessLineInfo(BusinessLineDao businessLine);
+    Integer insertBusinessLineInfo(BusinessLine businessLine);
 
     /**
      * Dao层，获取业务线数据列表
      * @return 返回业务线数据列表
      */
-    List<BusinessLineDao> getAllBusinessLines();
+    List<BusinessLine> getAllBusinessLines();
 
     /**
      * Dao层，更新指定业务线信息
