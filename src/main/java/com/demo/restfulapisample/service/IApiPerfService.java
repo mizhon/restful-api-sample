@@ -6,6 +6,9 @@ import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
+/**
+ * @author ming
+ */
 public interface IApiPerfService {
     /**
      * Service层，插入性能数据接口定义

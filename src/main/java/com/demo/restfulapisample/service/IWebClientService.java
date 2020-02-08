@@ -4,6 +4,9 @@ import com.demo.restfulapisample.entity.WebClient;
 
 import java.util.List;
 
+/**
+ * @author ming
+ */
 public interface IWebClientService {
     /**
      * 获取WebClients列表
