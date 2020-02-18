@@ -19,8 +19,8 @@ public interface IApiPerfService {
 
     /**
      * Service层，批量插入性能数据接口定义
-     *
      * @param apiPerfDetails 性能信息实例List
+     * @return 批量插入的条数
      */
     Integer batchAddApiPerfDetails(List<ApiPerfDetail> apiPerfDetails);
 

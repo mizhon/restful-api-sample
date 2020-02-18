@@ -29,4 +29,13 @@
             #{id}, #{clientId}, #{businessId}, #{domainName}, #{url}, #{routerPath}, #{pageName}, #{apiDuration}, #{tcpDuration}, #{ttfbDuration}, #{dnsDuration}, #{createdAt}
         )
     </insert>
+    
+    <insert id="batchAddApiPerfDetails" keyColumn="id" keyProperty="id" parameterType="java.util.List" useGeneratedKeys="true">
+        INSERT INTO `t_api_perf_details` (
+            <include refid="ApiPerfDetails_Column_List" />
+        ) VALUES
+        <foreach collection="list" item="item" open="(" close=")" separator="),(" index="index">
+            #{item.id}, #{item.uid}, #{item.deviceId}, #{item.networkType}, #{item.clientId}, #{item.businessId}, #{item.domainName}, #{item.url}, #{item.routerPath}, #{item.pageName}, #{item.apiDuration}, #{item.pageLoadTime}, #{item.tcpDuration}, #{item.ttfbDuration}, #{item.dnsDuration}, #{item.hasError}, #{item.errorInfo}, #{item.createdAt}
+        </foreach>
+    </insert>
 </mapper>
